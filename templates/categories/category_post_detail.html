@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load category_tags %}
+
+{% block title %} {{ category_post.title }} {% endblock title %}
+    
+
+{% block content %}
+<div class="row">
+
+    <!-- Blog Entries Column -->
+    <div class="col-md-8">
+            <h2>
+                {{ category_post.title }}
+            </h2>
+            <p class="lead">
+                by <a href="#">{{ category_post.author }}</a>
+            </p>
+            <p><span class="glyphicon glyphicon-time"></span> {{ category_post.created }}</p>
+            <hr>
+            <img class="img-responsive" src="{{ category_post.image.url }}" alt="">
+            <hr>
+            <p>{{ category_post.content }}</p>
+            <!-- <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a> -->
+
+            <hr>
+    </div>
+
+    <!-- Blog Sidebar Widgets Column -->
+    <div class="col-md-4">
+        <div class="well">
+            <h4>Blog Search</h4>
+                <form action="{% url 'search_results' %}" method="GET">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="q" placeholder="Search">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                        </span>
+                </form>
+            </div>
+            <!-- /.input-group -->
+        </div>
+
+        <!-- Side Widget Well -->
+        <div class="well">
+            <h4>Side Widget Well</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+        </div>
+
+    </div>
+
+</div>
+{% endblock content %}
+    

@@ -1,0 +1,38 @@
+{% extends 'base1.html' %}
+
+{% block content %}
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Author</th>
+        <th scope="col">Title</th>
+        <th scope="col">Category</th>
+        <th scope="col">Status</th>
+        <th scope="col">Image</th>
+        <th scope="col">Created</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Update</th>
+        <!-- <th scope="col">Handle</th>
+        <th scope="col">Handle</th> -->
+      </tr>
+    </thead>
+    <tbody>
+        
+        {% for post in post_list %}
+            <tr>
+                <td>{{ post.id }}</th>
+                <td>{{ post.author }}</td>
+                <td>{{ post.title }}</td>
+                <td>{{ post.category }}</td>
+                <td>{{ post.status }}</td>
+                <td><img class="img-responsive" src="{{ post.image.url }}" alt="" style="height: 30px;"></td>
+                <td>{{ post.created }}</td>
+                <td><a href="{% url 'post_delete' post.pk %}">Delete</a></td>
+                <td><a href="{% url 'post_update' post.pk %}">Update</a></td>
+            </tr>
+        {% endfor %}  
+    </tbody>
+  </table>
+{% endblock content %}
+    

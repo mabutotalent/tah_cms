@@ -1,0 +1,28 @@
+{% extends 'base1.html' %}
+
+{% block content %}
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Username</th>
+        <th scope="col">Email Address</th>
+        <th scope="col">Firstname</th>
+        <th scope="col">Lastname</th>
+        <!-- <th scope="col">Staff Status</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      
+      {% for user in users %}
+        <tr>
+            <th>{{ user.username }}</th>
+            <td>{{ user.email }}</td>
+            <td>{{ user.first_name }}</td>
+            <td>{{ user.last_name }}</td>
+        </tr>
+      {% endfor %}
+          
+    </tbody>
+  </table>
+{% endblock content %}
+    

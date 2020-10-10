@@ -1,0 +1,1 @@
+web: gunicorn tah_cms.wsgi --log-file -
